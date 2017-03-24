@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app='storyapp'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Storymaker</title>
+    <!-- <link rel="stylesheet" href="css/bootstrap4.css"> -->
+    <script src="https://use.fontawesome.com/0d87b2fbae.js"></script>
+    <link rel="stylesheet" href="css/bs4/bootstrap4.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+     <div ng-controller="ScriptController as list">
+
+         <div ng-if="list.selected.script == null">
+            <script-menu on-create="list.createScript()" title="{{list.title}}"></script-menu>
+
+            <div class="container-fluid" >
+                <script-list on-create="list.createScript()" scripts="list.scripts" title="{{list.title}}" on-select="list.selectScript(index)" on-remove="list.removeScript(index)">
+                </script-list>
+            </div>
+        </div>
+
+
+    </div>
+    <div ng-controller="ActController as acts" ng-hide="acts.selected.script == null">
+        <script-menu on-create="acts.createNewAct();" on-close="acts.closeScript()" title="{{ acts.scripts[acts.selected.script].title }}" menu-top="true"></script-menu>
+        <div class="container-fluid" >
+
+
+            <acts title="{{ acts.scripts[acts.selected.script].title }}" scripts="acts.scripts" on-remove="acts.removeAct(index)" selected="acts.selected"
+            on-get-toggle-label="acts.getSceneToggleLabel(index)" on-toggle="acts.toggleScenes(index)" show-details="{{acts.showDetails}}"
+            on-get-toggle="acts.getSceneToggle(index)" on-new-scene="acts.newScene(index)" on-remove-scene="acts.removeScene(index, actIndex)"></acts>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+
+    <script src="js/storyapp.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<div id="top"></div>
+<div class="noscripts">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+            <div class="no-card">
+                <div class="justify-content-center">
+                    <div class="no-header">
+                        <h1>Welcome to StoryMaker</h1>
+                    </div>
+                    <div class="no-body">
+                     <p class="lead">Create a script and start writing. You can not save your scripts so don't be ashamed of what you write.</p>
+                    </div>
+                    <div class="no-footer">
+                        <button type="button" ng-click="$ctrl.onCreate();" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> New Script</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div id="cardbox" class="col-sm-12 col-md-6" ng-repeat="script in $ctrl.scripts">
+        <div class="card">
+            <div class="card-block act-input">
+                <input class="act-header form-control" type="text" ng-model="script.title" value="script.title">
+                <textarea class="act-short form-control" ng-model="script.short" value="script.short"></textarea>
+            </div>
+            <div class="card-footer align-items-center">
+                <button href="" ng-click="$ctrl.onSelect({index: $index});" class="btn btn-sm btn-outline-info">Acts &amp; scenes</button>
+                <i class="fa fa-trash-o fa-2x float-right card-footer-icon" ng-click="$ctrl.remove($index);"  aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+

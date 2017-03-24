@@ -1,0 +1,41 @@
+
+<div class="row justify-content-between app-nav-bar align-items-center">
+    <div ng-click="$ctrl.toggleMenu()" class="app-collapse-right"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+    <div class="col-4 app-nav-left"><span>StoryMaker</span>
+    </div>
+    <div class="col-4 app-nav-center"><span>{{$ctrl.title}}</span>
+    </div>
+
+    <div class="col-4 app-nav-right">
+        <ul>
+
+        <li ng-click='toggleModal()'><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i></li>
+        <li ng-click="$ctrl.onCreate();"><i class="fa fa-plus fa-2x" aria-hidden="true"></i></li>
+        <li ng-show="$ctrl.menuTop" ng-click="$ctrl.onClose();"><i class="fa fa-arrow-circle-left fa-2x" aria-hidden="true"></i></li>
+        </ul>
+
+
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-12 app-collapse-menu">
+        <ul>
+        <li ng-click="$ctrl.onCreate();">Create new script</li>
+        <li ng-click='toggleModal()'>Help</li>
+        </ul>
+    </div>
+</div>
+<modal-dialog show='modalShown'>
+  <h1>StoryMaker</h1>
+  <p class="lead">Welcome to StoryMaker, a tool to make it more fun to get started on your firts script for the cinemas or the theatre.</p>
+  <p class="lead">It's easy to get started, just click the <i class="fa fa-plus" aria-hidden="true"></i> icon to create your script. Or click the same icon when you want to create a new act within that script.</p>
+  <p class="lead">But for each new script you create we have already created the three acts that you will need: 1. The Beginning, 2. The Middle and the 3. The end</p>
+  <p class="lead">But create how many scenes you like. Just make em good.</p>
+  <p class="lead">And remember, drama is conflict.</p>
+  <p><small>&copy; 2017, Brandomate AB</small></p>
+</modal-dialog>
+
+

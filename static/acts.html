@@ -1,0 +1,50 @@
+<div id="top" ></div>
+<div class="row justify-content-center">
+    <div ng-repeat="act in $ctrl.scripts[$ctrl.selected.script].acts" id="cardbox" class="col-lg-4 col-md-6 col-sm-12">
+
+            <div class="card">
+                <div class="card-image"></div>
+                <!-- <img class="card-img-top" src="..." alt="Card image cap">-->
+                <div class="card-block act-input">
+                    <input class="act-header form-control" type="text" ng-model="act.header" value="act.header">
+                    <textarea class="act-short form-control" ng-model="act.short" value="act.short"></textarea>
+                </div>
+
+                <!-- SCENES -->
+                <div class="card-block show-hide" ng-show="$ctrl.onGetToggle({index: $index})">
+                    <div>
+                        <small class="text-muted"><strong>SCENES</strong></small>
+                    </div>
+                    <!-- SCENE ITEM -->
+                    <div ng-repeat="scene in act.scenes" class="row justify-content-between act-input">
+                        <div class="col-10 scene-item">
+                            <input class="scene-header form-control" type="text" ng-model="scene.header" value="scene.header">
+                        </div>
+                        <div class="col-2 scene-item">
+                            <i class="fa fa-trash-o fa-2x float-right" ng-click="$ctrl.compRemoveScene({index: $index}, act.id)"  aria-hidden="true"></i>
+                        </div>
+                        <div class="col-12 scene-item">
+                            <textarea class="act-short form-control" ng-model="scene.short" value="scene.short"></textarea>
+                        </div>
+                        <div class="col-12 scene-item">
+                            <hr>
+                    </div>
+                    </div>
+
+                    <!-- SCENE ITEM END -->
+                    <div class="new-scene-button">
+                        <button ng-click="$ctrl.onNewScene({index: $index})" class="btn btn-sm btn-outline-info">New scene</button>
+                    </div>
+                </div>
+                <!-- END SCENES -->
+                <div class="card-footer">
+                    <button href="" class="btn btn-sm btn-outline-info" ng-click="$ctrl.onToggle({index: $index})">
+                    {{ $ctrl.onGetToggleLabel({index: $index}) }} </button>
+
+                    <i class="fa fa-trash-o fa-2x float-right" ng-click="$ctrl.onRemove({index: $index});"  aria-hidden="true"></i>
+                </div>
+            </div>
+
+    </div>
+</div>
+

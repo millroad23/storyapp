@@ -89,7 +89,7 @@ var app = angular.module('storyapp', ['ngAnimate']);
 
         // User select a script to work on.
         list.selectScript = function (itemIndex) {
-
+            list.menuTop = false;
             StoryService.selectScript(itemIndex);
 
         };

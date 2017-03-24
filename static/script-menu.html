@@ -23,6 +23,7 @@
 <div class="row">
     <div class="col-12 app-collapse-menu">
         <ul>
+        <li ng-show="$ctrl.menuTop" ng-click="$ctrl.onClose();">My scripts</li>
         <li ng-click="$ctrl.onCreate();">Create new script</li>
         <li ng-click='toggleModal()'>Help</li>
         </ul>
